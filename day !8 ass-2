@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    float num, lowest, secondLowest;
+    printf("Enter the total number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter number 1: ");
+    scanf("%f", &lowest);
+    printf("Enter number 2: ");
+    scanf("%f", &num);
+
+    if (num < lowest) {
+        secondLowest = lowest;
+        lowest = num;
+    } else {
+        secondLowest = num;
+    }
+    for (i = 3; i <= n; i++) {
+        printf("Enter number %d: ", i);
+        scanf("%f", &num);
+        if (num < lowest) {
+            secondLowest = lowest;
+            lowest = num;
+        } else if (num < secondLowest) {
+            secondLowest = num;
+        }
+    }
+    printf("The second lowest number is %.2f", secondLowest);
+
+    return 0;
+}
